@@ -24,7 +24,12 @@ export default createGlobalStyle`
         }
     }
     button {
+        font-family: 'Didact Gothic', sans-serif;
         cursor: pointer;
         border: 0;
+    }
+
+    input {
+        font-family: 'Didact Gothic', sans-serif;
     }
 `;
