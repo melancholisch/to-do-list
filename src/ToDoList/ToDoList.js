@@ -66,30 +66,57 @@ submitEditValue = (event, index) => {
 render (){
     return  (
         <Formulario>
-            
-            <h1>Lista de tarefas:</h1>
-
                 <form onSubmit={this.handleSubmit}>
+                    <h1>Lista de tarefas:</h1>
                     <ul>
                         {this.state.tarefas.map((tarefa, index) => (
                         <>
-                            <li key={tarefa}>
-                                {tarefa}
-                                <button onClick={()=>this.handleDelete(tarefa)} type= "button">X</button>
-                                <button onClick={()=>this.startEdit(index)}  type= "button">Editar</button>
-                                
-                            </li>
+                            <div className="controle-tarefa">
+                                <li key={tarefa}> {tarefa} </li>
+
+                                <div className="controle-tarefa-botoes">
+                                    <button id="controle-excluir-botao" 
+                                                onClick={()=>this.handleDelete(tarefa)} 
+                                                type= "button">
+                                    Excluir</button>
+
+                                    <button id="controle-edicao-botao-editar" 
+                                            onClick={()=>this.startEdit(index)}  
+                                            type= "button">
+                                    Editar</button>
+                                </div>
+                            </div>
                             {this.state.onEdit && this.state.tarefaEditadaIndex === index && (
+                                
                                 <div className="controle-edicao">
-                                    <input id="controle-edicao-input" type='text' onChange={e => this.handleEditInput(e)} value={this.state.tarefaEditada} placeholder="Edite sua tarefa"/>
-                                    <button id="controle-edicao-botao" type='submit' onClick={e => this.submitEditValue(e, index)} >Enviar</button>
+                                    <input id="controle-edicao-input" 
+                                            type='text' 
+                                            onChange={e => this.handleEditInput(e)} 
+                                            value={this.state.tarefaEditada} 
+                                            placeholder="Edite sua tarefa"/>
+
+                                    <button id="controle-edicao-botao-enviar" 
+                                            type='submit' 
+                                            onClick={e => this.submitEditValue(e, index)} >
+                                    Enviar</button>
+
                                 </div>
                             )}
                         </>
                         ))}
                     </ul>
-                    <input type='text' onChange={this.handleInputChange} value={this.state.novaTarefa} placeholder="Digite uma tarefa" required />
-                    <button onClick={e => this.createNew(e)} type='submit'>Enviar</button>
+
+                    <div className="controle-adicao">
+                        <input type='text' 
+                                onChange={this.handleInputChange} 
+                                value={this.state.novaTarefa} 
+                                placeholder="Digite uma tarefa" required />
+
+                        <button onClick={e => this.createNew(e)} 
+                                type='submit'>
+                        Enviar</button>
+                    </div>
+
                 </form>
                 
         </Formulario>

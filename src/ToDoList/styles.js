@@ -1,39 +1,89 @@
 import styled from 'styled-components';
 
 export const Formulario = styled.div`
-    background-color: tomato;
-    text-align: center;
-    margin-top: 40px;
-    
+        background-color: rgba(239,235,232);
+        text-align: center;
+        height: 100vh;
+
+    form {
+        width: 75vw;
+        margin: 0 auto;
+        position: relative;
+        top: 30px;
+        border-radius: 15px;
+        background-color: rgba(245,255,250);
+        min-height: 50vh;
+    }
+
     h1 {
-        margin-bottom: 20px;
+        background-color: rgba(168, 195,225);
+        color: rgba(245,255,250);
+        height: 75px;
+        text-align: center;
+        border-radius: 15px 15px 0px 0px ;
+    }
+
+    li {
+        text-align: start;
+        list-style: none;
     }
 
     input{
         height: 50px;
-        width: 200px;
+        width: 400px;
         border: none;
-        margin-bottom: 10px;
         text-align: center;
     }
 
     button{
-        margin-left: 20px;
-        margin-top: 20px;
         height: 50px;
         width: 80px;
         padding: 15px;
-        
+        border-radius: 10px;
     }
+
     .controle-edicao{
         display: flex;
-        flex-direction: column;
+        justify-content: space-evenly;
         align-items: center;
-        position: relative;
-        left: 65%;
-        background-color: green;
-        width: 300px;
         text-align: center;
-        transition: all .2s;
     }
+
+    #controle-excluir-botao{
+        
+    }
+
+    .controle-adicao{
+        display:flex;
+        height: 40vh;
+        margin: 0 auto;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .controle-adicao button {
+        margin: 20px;
+    }
+
+    .controle-tarefa {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .controle-tarefa li{
+        width: 400px;
+        height: 50px;
+        margin: 20px 0px 20px 0px;
+        background-color: #fff;
+    }
+    
+    .controle-tarefa-botoes {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        width: 180px;
+    }
+
+
 `
