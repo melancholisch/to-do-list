@@ -91,14 +91,14 @@ render (){
     return  (
         <Formulario>
                 <form onSubmit={this.handleSubmit}>
-                    <h1>Lista de tarefas:</h1>
+                    <div className="cabecalho"><h1>Lista de tarefas:</h1></div>
                     <ul>
                         {this.state.tarefas.map((tarefa, index) => (
                         <>
                             <div className="controle-tarefa">
                                 
-                                <Checkbox/>
-                                <li key={tarefa}> {tarefa} </li>
+                                
+                                <li key={tarefa}> <Checkbox/> {tarefa} </li>
                                 
                                 <div className="controle-tarefa-botoes">
                                     <button id="controle-excluir-botao" 
