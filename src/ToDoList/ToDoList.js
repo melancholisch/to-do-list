@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Formulario} from './styles';
-
+import { Checkbox } from '@material-ui/core';
 
 class ToDoList extends Component {
 
@@ -12,7 +12,27 @@ class ToDoList extends Component {
         tarefaEditada: '',
         tarefaEditadaIndex: null,
         onEdit: false,
+        checked: false
     }
+
+// CARREGANDO OS DADOS 
+componentDidMount(){
+    const tarefas = localStorage.getItem('tarefas');
+
+    if (tarefas){
+        this.setState({tarefas: JSON.parse(tarefas)});
+    }
+}
+
+// SALVANDO OS DADOS DO LOCAL STORAGE
+componentDidUpdate(_, prevState){
+    const {tarefas} = this.state;
+    
+    if(prevState.tarefas !== tarefas){
+        localStorage.setItem('tarefas', JSON.stringify(tarefas))
+    }
+}
+
 
 handleInputChange = e => {
     this.setState({novaTarefa: e.target.value});
@@ -28,7 +48,9 @@ handleSubmit = e => {
 
 createNew = e => {
     console.log('ola')
-    this.setState({tarefas: [...this.state.tarefas, this.state.novaTarefa]});
+    this.setState({tarefas: [...this.state.tarefas, this.state.novaTarefa],
+    novaTarefa: ''
+    });
 }
 
 handleDelete = (tarefa) =>{
@@ -45,8 +67,8 @@ handleEditInput = e => {
     this.setState({tarefaEditada: e.target.value});
 }
 
-submitEditValue = (event, index) => {
-    event.preventDefault();
+submitEditValue = (e, index) => {
+    e.preventDefault();
 
     const { tarefas } = this.state;
     
@@ -63,6 +85,8 @@ submitEditValue = (event, index) => {
     });
 }
 
+
+
 render (){
     return  (
         <Formulario>
@@ -72,8 +96,10 @@ render (){
                         {this.state.tarefas.map((tarefa, index) => (
                         <>
                             <div className="controle-tarefa">
+                                
+                                <Checkbox/>
                                 <li key={tarefa}> {tarefa} </li>
-
+                                
                                 <div className="controle-tarefa-botoes">
                                     <button id="controle-excluir-botao" 
                                                 onClick={()=>this.handleDelete(tarefa)} 

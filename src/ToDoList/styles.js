@@ -76,6 +76,8 @@ export const Formulario = styled.div`
         height: 50px;
         margin: 20px 0px 20px 0px;
         background-color: #fff;
+        align-items: center;
+        font-size: 24px;
     }
     
     .controle-tarefa-botoes {
