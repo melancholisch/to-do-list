@@ -11,8 +11,7 @@ class ToDoList extends Component {
         ],
         tarefaEditada: '',
         tarefaEditadaIndex: null,
-        onEdit: false,
-        checked: false
+        onEdit: false
     }
 
 // CARREGANDO OS DADOS 
@@ -47,7 +46,6 @@ handleSubmit = e => {
 }
 
 createNew = e => {
-    console.log('ola')
     this.setState({tarefas: [...this.state.tarefas, this.state.novaTarefa],
     novaTarefa: ''
     });
@@ -91,13 +89,14 @@ render (){
     return  (
         <Formulario>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="cabecalho"><h1>Lista de tarefas:</h1></div>
+
+                    <h1>Lista de tarefas:</h1>
+
                     <ul>
                         {this.state.tarefas.map((tarefa, index) => (
                         <>
                             <div className="controle-tarefa">
-                                
-                                
+                    
                                 <li key={tarefa}> <Checkbox/> {tarefa} </li>
                                 
                                 <div className="controle-tarefa-botoes">
@@ -144,7 +143,6 @@ render (){
                     </div>
 
                 </form>
-                
         </Formulario>
     )
     }

@@ -15,7 +15,7 @@ export const Formulario = styled.div`
         min-height: 50vh;
     }
 
-    .cabecalho{
+    h1{
         background-color: rgba(168, 195,225);
         color: rgba(245,255,250);
         height: 75px;
